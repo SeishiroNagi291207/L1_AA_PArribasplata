@@ -165,20 +165,20 @@ int CountStrongerPairs(int[] powerLevels)
                 // N + 1(comparación) + N
              if (powerLevels[i] > powerLevels[i])
              {
-                 count++; // N + 1 
+                 count++; // N 
              }
          }
     }
 }
 
-El for interno: 1 + (N+1) + N + N + 1 + N + N + 1 = 5N + 4
-Multiplicamos por N: N(5N + 3) = 5N² + 4N
+El for interno: 1 + (N+1) + N + N + 1 + N + N = 5N + 3
+Multiplicamos por N: N(5N + 3) = 5N² + 3N
 
-Por ultimo sumamos todo: 1 + 1 + (N+1) + N + 5N² + 4N
-Resultado final: 5N² + 6N + 2
+Por ultimo sumamos todo: 1 + 1 + (N+1) + N + 5N² + 3N
+Resultado final: 5N² + 5N + 3
 
 
-T(N) = 5N² + 5N + 2
+T(N) = 5N² + 5N + 3
 O(N) = N²
 
 
