@@ -1,0 +1,185 @@
+Ejercicio 1:
+int SumScores(int[] scores)
+{
+    // +1 (asignación)
+    int sum = 0;
+    
+    // +1 (init) + (N+1 comparaciones) + N incrementos
+    for (int i = 0; i < scores.Length; i++)
+    {
+        // +2 (operación y asignación) + N
+        sum += scores[i];
+
+    }
+
+    return sum; //+1
+}
+
+1 + 1 + (N+1) + N + 2 + N + 1
+
+T(N) = 3N + 6
+O(N) = N
+
+---------------------------------------------------------------------------------
+
+Ejercicio 2:
+void ComparePlayer(List<GameObject> players)
+{
+    // +1 (init) + (N+1 comparaciones) + N incrementos
+    for (int i = 0; i < player.Count; i++)
+    {
+        // +1 (asignación) + N (i) + 1 (operación) + (N+1 comparaciones) + N incrementos
+        for(int j = i + 1; j < players.Count; j++) // Notita: 1+N+1+(N+1)+N "esta forma con i+1 equivale a 3N + 3.
+        {
+             // 1 + N + 1 (operación) + 1 (operación)
+             Debug.Log(players[i].name + " vs " + __________);
+        }
+    }
+}
+
+El for interno: 1 + N + 1 (N+1) + N + 1 + N + 1 + 1 = 4N + 6
+Multiplicamos por N: N(4N + 6) = 4N² + 6N
+
+Por ultimo sumamos todo: 1 + (N+1) + N + 4N² + 6N 
+Resultado final: 4N² + 8N + 2
+
+T(N) = 4N² + 8N + 2
+O(N) = N²
+
+--------------------------------------------------------------------------------
+
+Ejercicio 3:
+int CalculateInteractionScore(int[] players)
+{
+    // +1 (asignación)
+    int score = 0;
+
+    // +1 (init) + (N+1 comparaciones) + N incrementos
+    for(int i = 0; i < players.Length; i++)
+    {
+       // +1 (asignación) + N (i) + 1 (operación) + (N+1 comparaciones) + N incrementos
+       for(int j = i + 1; j < player.Length; j++)  // Notita: 1+N+1+(N+1)+N "esta forma con i+1 equivale a 3N + 3.
+       {
+           1 (asignación)  +  N + 1 (operación mat.) + N
+           int interaction = players[i] + players[j];
+           score += interaction; // +2 (operación y asignación)
+       }
+    }
+    return score; //+1
+}
+
+El for interno: 1 + N + 1 + (N+1) + N + 1 + (N+1) + N + 2 = 5N + 7
+Multiplicamos por N: N(5N + 7) = 5N² + 7N
+
+Por ultimo sumamos todo: 1 + 1 + (N+1) + N + 5N² + 7N + 1
+Resultado final: 5N² + 9N + 4
+
+T(N) = 5N² + 9N + 4
+O(N) = N²
+
+--------------------------------------------------------------------------------
+
+Ejercicio 4:
+int CalculateFinalDamage(int attack, int defense, float multiplier)
+{
+    // +1 (asignación) + 1(operación)
+    int baseDamage = attack - defense;
+    int finalDamage = (int)(baseDamage * multiplier); //+1 (asignación) + 1(operación)
+
+    // +1 (operación)
+    if (finalDamage < 0)
+    {
+        // +1 (asignación)
+        finalDamage = 0;
+    }
+    // +1
+    return finalDamage;
+}
+
+1 + 1 + 1 + 1 + 1 + 1 + 1 
+
+T(N) = 7
+O(N) = 1
+
+-------------------------------------------------------------------------------
+
+Ejercicio 5:
+bool CanCastSpell (int mana, int cost)
+{
+   //  +1 (asignación) + 1(operación)
+   int remainingMana = mana - cost;
+   if (remainingMana >= 0) // +1 (comparación) + 1(asignación)
+   {
+       Debug.Log("Spell casted"); // +1
+       return true; //+1
+   }
+   // +1
+   return false;
+}
+
+1 + 1 + 1 + 1 + 1 + 1 + 1
+
+T(N) = 7
+O(N) = 1
+
+------------------------------------------------------------------------------
+
+Ejercicio 6:
+bool HasLowHealthPlayer(int[] healthValues)
+{
+    // +1 (init) + (N+1 comparaciones) + N incrementos
+    for (int i = 0; i < healthValues.Length; i++)
+    {
+       // +1(asignación) + N 
+       int health = healthValues[i];
+
+       if (health < 30) // +1(comparación)
+       {
+           Debug.Log("Low health detected"); //+1
+           return true; //+1
+       }
+    //+1
+    return false;
+}
+
+1 + (N+1) + N + 1 + N + 1 + 1 + 1 + 1
+3N + 7
+
+T(N) = 3N + 7
+O(N) = N
+
+------------------------------------------------------------------------------
+
+Ejercicio 7:
+int CountStrongerPairs(int[] powerLevels)
+{
+    // +1 (asignación)
+    int count = 0;
+
+    // +1 (init) + (N+1 comparaciones) + N incrementos
+    for (int i = 0; i < powerLevels.Length; i++)
+    {
+         // +1 (init) + (N+1 comparaciones) + N incrementos
+         for (int j = 0; j < powerLevels.Length; j++)
+         {
+                // N + 1(comparación) + N
+             if (powerLevels[i] > powerLevels[i])
+             {
+                 count++; // N + 1 
+             }
+         }
+    }
+}
+
+El for interno: 1 + (N+1) + N + N + 1 + N + N + 1 = 5N + 4
+Multiplicamos por N: N(5N + 3) = 5N² + 4N
+
+Por ultimo sumamos todo: 1 + 1 + (N+1) + N + 5N² + 4N
+Resultado final: 5N² + 6N + 2
+
+
+T(N) = 5N² + 5N + 2
+O(N) = N²
+
+
+
